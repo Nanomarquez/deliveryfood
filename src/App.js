@@ -24,7 +24,7 @@ function App() {
     Items.filter((e) => e.itemId === "burger01")
   );
 
-  const [{ cart }, dispatch] = useStateValue();
+  const [{ cart }] = useStateValue();
 
   useEffect(() => {
     const menuLi = document.querySelectorAll("#menu li");

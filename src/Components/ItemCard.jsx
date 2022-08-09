@@ -5,18 +5,18 @@ import {actionType} from './reducer';
 import {useStateValue} from './StateProvider';
 let cardData = [];
 function ItemCard({imgSrc,name,ratings,price,itemId}) {
-  
   const [isFavourite,setIsFavourite] = useState(false);
   const [currentValue,setCurrentValue] = useState(Math.floor(ratings))
 
   const [isCart,setCart] = useState(null)
+  // eslint-disable-next-line 
   const [{},dispatch] = useStateValue()
   useEffect(()=>{
     if(isCart){
       cardData.push(isCart);
       dispatch({type:actionType.SET_CART, cart: cardData,})
     }
-  },[isCart])
+  },[isCart,dispatch])
 
   const handleClick = (value) =>{
     setCurrentValue(value)
